@@ -3,7 +3,7 @@ import TodoList from '../TodoList';
 import { getTodos, toggleItem } from '../../reducers/todos/actions';
 import { connect } from 'react-redux';
 
-class TodoContainer extends Component {
+export class TodoContainer extends Component {
   componentDidMount() {
     this.props.getTodos();
   }
@@ -15,12 +15,17 @@ class TodoContainer extends Component {
   }
 }
 
-const mapStateToProps = state => ({
+export const mapStateToProps = state => ({
   items: state.todos.items
 })
 
+export const mapDispatchToProps = {
+  getTodos: () => getTodos(),
+  toggleItem: () => toggleItem()
+}
+
 export default connect(
   mapStateToProps,
-  { getTodos, toggleItem }
+  mapDispatchToProps
 )(TodoContainer);
-   
+
