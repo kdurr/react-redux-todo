@@ -6,7 +6,6 @@ export const getTodos = createThunk({
   type: 'GET_ALL_TODOS'
 });
 
-export const toggleItem = id => ({
-  type: 'TOGGLE_ITEM',
-  payload: id
+export const toggleItem = () => ({
+  // Implement me
 });
